@@ -99,11 +99,58 @@
 </pre>
                             <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
                             <pre>
-$(".query_btn").click(function(){
-    var query_param = $(this).prev().val();
-})
+$( document ).ready(function() {
+    var appID = "PUT YOUR API KEY HERE";
+
+    $(".query_btn").click(function(){
+        var query_param = $(this).prev().val();
+    })
+});
 </pre>
-                            <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the </li>
+                            <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</li>
+                            <pre>
+$( document ).ready(function() {
+    var appID = "PUT YOUR API KEY HERE";
+
+    $(".query_btn").click(function(){
+
+        var query_param = $(this).prev().val();
+
+        if ($(this).prev().attr("placeholder") == "City") {
+            var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
+        } else if ($(this).prev().attr("placeholder") == "Zip Code") {
+            var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
+        } else if ($(this).prev().attr("placeholder") == "GeoLocation") {
+            // We'll work on this one in a later step
+        }
+    })
+});
+</pre>
+                            <li class="text-faded">Notice that we left out the functionality for Geolocation - this is because it's a bit more complicated and we want to make Zip Code and Geolocation start working first.</li>
+                            <li class="text-faded">Using the weather variable, we can now query the data from the API.</li>
+                            <pre>
+$( document ).ready(function() {
+    var appID = "PUT YOUR API KEY HERE";
+
+    $(".query_btn").click(function(){
+
+        var query_param = $(this).prev().val();
+
+        if ($(this).prev().attr("placeholder") == "City") {
+            var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
+        } else if ($(this).prev().attr("placeholder") == "Zip Code") {
+            var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
+        } else if ($(this).prev().attr("placeholder") == "GeoLocation") {
+            // We'll work on this one in a later step
+        }
+
+        $.getJSON(weather,function(json){
+            document.write(JSON.stringify(json));
+        });
+    })
+});
+</pre>
+                            <li class="text-faded">Notice that we left out the functionality for Geolocation - this is because it's a bit more complicated and we want to make Zip Code and Geolocation start working first.</li>
                         </ol>
                     </div>
                 </div>
@@ -113,6 +160,19 @@ $(".query_btn").click(function(){
                     <input type="text" placeholder="City"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                     <input type="text" placeholder="Zip Code"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                     <input type="text" placeholder="GeoLocation"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h1>City: <span id="city"></span></h1>
+                    <div>Weather:
+                        <p id="main_weather"></p>
+                        <p id="description_weather"></p>
+                        <img id="weather_image" src="">
+                    </div>
+                    <h1>Temperature: <span id="temperature"></span></h1>
+                    <h1>Pressure: <span id="pressure"></span></h1>
+                    <h1>Humidity: <span id="humidity"></span></h1>
                 </div>
             </div>
         </div>

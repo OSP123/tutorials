@@ -13,9 +13,12 @@ $( document ).ready(function() {
     		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + appID;
     	}
 
-        document.write("jquery loaded");
         $.getJSON(weather,function(json){
-            document.write(JSON.stringify(json));
+            $("#city") = json.name;
+            $("#main_weather") = json.weather[0].main;
+            // $("#city") = json.name;
+            // $("#city") = json.name;
+            // $("#city") = json.name;
         });
     })
 
