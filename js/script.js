@@ -13,19 +13,10 @@ $( document ).ready(function() {
     		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + appID;
     	}
 
-    	function getWeather(callback) {
-		    $.ajax({
-		      dataType: "jsonp",
-		      url: weather,
-		      success: callback
-		    });
-		}
-
-		// get data:
-		getWeather(function (data) {
-		    console.log('weather data received');
-		    console.log(data.list[0].weather[0].description);
-		});
+    	$.getJSON(weather,function(result){
+	        alert("City: "+result.city.name);
+	        alert("Weather: "+ result.list[0].weather[0].description);
+    	});
     })
 
 
