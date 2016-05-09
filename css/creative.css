@@ -483,3 +483,8 @@ body {
 input {
     color: black;
 }
+
+/* Styling for Weather Map API */
+li a {
+    color: white;
+}

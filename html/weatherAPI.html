@@ -83,8 +83,9 @@
                     <hr class="light">
                     <div class="text-left">
                         <ol>
-                            <li class="text-faded">Here's a great video on getting started with the OpenWeatherMap: https://www.youtube.com/watch?v=53AoDB7vcbU</li>
+                            <li class="text-faded">Here's a great video on getting started with the <a href="https://www.youtube.com/watch?v=53AoDB7vcbU">OpenWeatherMap</a></li>
                             <li class="text-faded">Once you're done watching the video, you should have a basic understanding of running these queries. Now, let's set them up.</li>
+                            <li class="text-faded">Get yourself an API key from the following <a href="http://openweathermap.org/appid">url</a></li>
                             <li class="text-faded">We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</li>
                             <li class="text-faded">Let's go ahead and create the HTML for the code.</li>
                             <pre>
@@ -98,13 +99,11 @@
 </pre>
                             <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
                             <pre>
-$( document ).ready(function() {
-    $(".query_btn").click(function(){
-        console.log($(this).prev().val());
-    })
-});
+$(".query_btn").click(function(){
+    var query_param = $(this).prev().val();
+})
 </pre>
-                            <li class="text-faded"></li>
+                            <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the </li>
                         </ol>
                     </div>
                 </div>
