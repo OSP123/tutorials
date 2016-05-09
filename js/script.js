@@ -6,9 +6,9 @@ $( document ).ready(function() {
     	var query_param = $(this).prev().val();
 
     	if ($(this).prev().attr("placeholder") == "City") {
-    		var weather = "api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
+    		var weather = "https://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
     	} else if ($(this).prev().attr("placeholder") == "Zip Code") {
-    		var weather = "api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
+    		var weather = "https://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
     	} else if ($(this).prev().attr("placeholder") == "GeoLocation") {
     		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + appID;
     	}
