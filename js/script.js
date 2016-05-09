@@ -15,7 +15,6 @@ $( document ).ready(function() {
 
 	    $.ajax({
 	      url: weather,
-	      jsonp: 'callback',
 	      dataType: 'jsonp',
 	      cache: false,
 	      // work with the response
