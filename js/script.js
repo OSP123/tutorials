@@ -11,7 +11,8 @@ $( document ).ready(function() {
     		var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&units=imperial&APPID=" + appID;
     	} else if ($(this).prev().attr("placeholder") == "GeoLocation") {
     		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&APPID=" + appID;
-    		var getIP = 'http://ip-api.com/json/';
+    		var getIP = 'https://api.ipify.org?format=jsonp&callback=getIP';
+    		
 			$.getJSON(getIP).done(function(location) {
 			    $('#currentLocation').text(location.city + ', ' + location.region + ', ' + location.country);
 				
