@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Test Site for a variety of things</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/creative.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../index.html">Web Testing</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="weatherAPI.html">Weather API</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header class="weather_header">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Using a Weather API</h1>
+                <hr>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">In this tutorial, we are going to build a weather query system using OpenWeatherMap's API.</h2>
+                    <hr class="light">
+                    <div class="text-left">
+                        <ol>
+                            <li class="text-faded">Here's a great video on getting started with the OpenWeatherMap: https://www.youtube.com/watch?v=53AoDB7vcbU</li>
+                            <li class="text-faded">Once you're done watching the video, you should have a basic understanding of running these queries. Now, let's set them up.</li>
+                            <li class="text-faded">We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</li>
+                            <li class="text-faded">Let's go ahead and create the HTML for the code.</li>
+                            <pre>
+&lt;div class="row"&gt;
+    &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
+        &lt;input type="text" placeholder="City"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
+        &lt;input type="text" placeholder="Zip Code"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
+        &lt;input type="text" placeholder="GeoLocation"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                            <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
+                            <pre>
+$( document ).ready(function() {
+    $(".query_btn").click(function(){
+        console.log($(this).prev().val());
+    })
+});
+</pre>
+                            <li class="text-faded"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <input type="text" placeholder="City"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
+                    <input type="text" placeholder="Zip Code"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
+                    <input type="text" placeholder="GeoLocation"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/jquery.fittext.js"></script>
+    <script src="../js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/creative.js"></script>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
