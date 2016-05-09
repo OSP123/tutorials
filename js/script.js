@@ -14,8 +14,8 @@ $( document ).ready(function() {
     	}
 
         $.getJSON(weather,function(json){
-            $("#city") = json.name;
-            $("#main_weather") = json.weather[0].main;
+            $("#city").html(json.name);
+            $("#main_weather").html(json.weather[0].main);
             // $("#city") = json.name;
             // $("#city") = json.name;
             // $("#city") = json.name;
