@@ -6,12 +6,13 @@ $( document ).ready(function() {
     	var query_param = $(this).prev().val();
 
     	if ($(this).prev().attr("placeholder") == "City") {
-    		var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
+    		var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&units=imperial&APPID=" + appID;
     	} else if ($(this).prev().attr("placeholder") == "Zip Code") {
-    		var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
+    		var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&units=imperial&APPID=" + appID;
     	} else if ($(this).prev().attr("placeholder") == "GeoLocation") {
-    		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&APPID=" + appID;
+    		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&APPID=" + appID;
     	}
+
 
         $.getJSON(weather,function(json){
             $("#city").html(json.name);
