@@ -16,9 +16,11 @@ $( document ).ready(function() {
         $.getJSON(weather,function(json){
             $("#city").html(json.name);
             $("#main_weather").html(json.weather[0].main);
-            // $("#city") = json.name;
-            // $("#city") = json.name;
-            // $("#city") = json.name;
+            $("#description_weather").html(json.weather[0].description);
+            $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + json.weather[0].icon);
+            $("#temperature").html(json.main.temp);
+            $("#pressure").html(json.main.pressure);;
+            $("#humidity").html(json.main.humidity);;
         });
     })
 
