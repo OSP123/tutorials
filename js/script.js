@@ -9,25 +9,7 @@ $( document ).ready(function() {
     		var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&units=imperial&APPID=" + appID;
     	} else if ($(this).prev().attr("placeholder") == "Zip Code") {
     		var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&units=imperial&APPID=" + appID;
-    	} else if ($(this).prev().attr("placeholder") == "GeoLocation") {
-    		// var weather = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&APPID=" + appID;
-    		var getIP = 'https://api.ipify.org?format=jsonp&callback=getIP';
-    		
-			$.getJSON(getIP).done(function(location) {
-			    $('#currentLocation').text(location.city + ', ' + location.region + ', ' + location.country);
-				
-				$.getJSON(openWeatherMap, {
-			        lat: location.lat,
-			        lon: location.lon,
-			        units: 'metric',
-			        APPID: appID
-			    })
-
-			    .done(function(weather) {
-			        $('#loading').text(Math.round(weather.main.temp));
-			    })
-			})
-    	}
+    	} 
 
         $.getJSON(weather,function(json){
             $("#city").html(json.name);
