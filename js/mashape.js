@@ -11,7 +11,7 @@ $( document ).ready(function() {
         type: 'POST', // The HTTP Method
         data: {}, // Additional parameters here
         datatype: 'json',
-        success: function(data) { alert(JSON.stringify(data)); },
+        success: function(data) { console.log(JSON.stringify(data)); },
         error: function(err) { alert(err); },
         beforeSend: function(xhr) {
             xhr.setRequestHeader("X-Mashape-Authorization", appID); // Enter your Mashape key here
