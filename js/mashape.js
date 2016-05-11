@@ -12,7 +12,7 @@ $( document ).ready(function() {
         data: {}, // Additional parameters here
         datatype: 'json',
         success: function(data) { console.log(JSON.stringify(data)); },
-        error: function(err) { alert(err); },
+        error: function(err) { console.log(err); },
         beforeSend: function(xhr) {
             xhr.setRequestHeader("X-Mashape-Authorization", appID); // Enter your Mashape key here
         }
