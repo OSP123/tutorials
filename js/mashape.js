@@ -7,7 +7,7 @@ $( document ).ready(function() {
     console.log(encode);
 
     $.ajax({
-        url: 'https://loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        url: 'https://loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/' + encode, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
         type: 'POST', // The HTTP Method
         data: {}, // Additional parameters here
         datatype: 'json',
