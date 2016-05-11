@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 	var appID = "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp";
 
-    var someString = "I am a lovely string.";
+    var someString = "I am a lovely string";
     var encode = encodeURI(someString);
 
     console.log(encode);
