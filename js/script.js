@@ -22,11 +22,10 @@ $( document ).ready(function() {
         });
     })
 
-    if ($('#temperature').is(':empty') == false) {
-  		$("#convert").click(function(){
-  			$("#temperature").text() == ((($("#temperature").text() - 32) * 5) / 9  );
-  		});
-	}
+	$("#convert").click(function(){
+		$("#temperature").text() == ((($("#temperature").text() - 32) * 5) / 9  );
+		console.log($("#temperature").text());
+	});
 
 
    	
