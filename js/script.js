@@ -23,7 +23,7 @@ $( document ).ready(function() {
     })
 
 	$("#convertToCelsius").click(function(){
-		$("#temperature").text(((($("#temperature").text() - 32) * 5) / 9  ));
+		$("#temperature").text(((($("#temperature").text() - 32) * 5) / 9));
 		console.log($("#temperature").text());
 	});
 
