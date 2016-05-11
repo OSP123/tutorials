@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Test Site for a variety of things</title>
+    <title>Web Tutorials</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
@@ -68,10 +68,10 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header class="weather_header">
+    <header class="mashable_header">
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Using a Weather API</h1>
+                <h1>Using the Mashape APIs</h1>
                 <hr>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
             </div>
@@ -82,12 +82,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">In this tutorial, we are going to build a weather query system using OpenWeatherMap's API.</h2>
+                    <h2 class="section-heading">In this tutorial, we are going to learn how to use APIs from <a href="https://market.mashape.com/explore" target="_blank">Mashape</a></h2>
                     <hr class="light">
                     <div class="text-left">
                         <ol>
-                            <li class="text-faded">Here's a great video on getting started with the <a href="https://www.youtube.com/watch?v=53AoDB7vcbU">OpenWeatherMap</a></li>
-                            <li class="text-faded">Once you're done watching the video, you should have a basic understanding of running these queries. Now, let's set them up.</li>
+                            <li class="text-faded">First off, there is already a code snippet that was posted on Mashape's site on how to access the different APIs via AJAX:  <a href="http://blog.mashape.com/mashape-sample-code-executing-ajax-request-using-jquery/" target="_blank">Mashape Snippet</a></li>
+                            <li class="text-faded">Let's use that snippet to try and implement a couple of APIs from Mashable.</li>
                             <li class="text-faded">Get yourself an API key from the following <a href="http://openweathermap.org/appid">url</a></li>
                             <li class="text-faded">We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</li>
                             <li class="text-faded">Let's go ahead and create the HTML for the code.</li>
@@ -114,74 +114,15 @@
 </pre>
                             <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
                             <pre>
-$( document ).ready(function() {
-    var appID = "PUT YOUR API KEY HERE";
 
-    $(".query_btn").click(function(){
-        var query_param = $(this).prev().val();
-    })
-});
 </pre>
                             <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</li>
                             <pre>
-$( document ).ready(function() {
-    var appID = "PUT YOUR API KEY HERE";
 
-    $(".query_btn").click(function(){
-
-        var query_param = $(this).prev().val();
-
-        if ($(this).prev().attr("placeholder") == "City") {
-            var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
-        } else if ($(this).prev().attr("placeholder") == "Zip Code") {
-            var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
-        }
-    })
-});
 </pre>
                             <li class="text-faded">Using the weather variable, we can now query the data from the API and insert it into our HTML.</li>
                             <pre>
-$( document ).ready(function() {
-    var appID = "PUT YOUR API KEY HERE";
 
-    $(".query_btn").click(function(){
-
-        var query_param = $(this).prev().val();
-
-        if ($(this).prev().attr("placeholder") == "City") {
-            var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + query_param + "&APPID=" + appID;
-        } else if ($(this).prev().attr("placeholder") == "Zip Code") {
-            var weather = "http://api.openweathermap.org/data/2.5/weather?zip=" + query_param + "&APPID=" + appID;
-        }
-
-        $.getJSON(weather,function(json){
-            $("#city").html(json.name);
-            $("#main_weather").html(json.weather[0].main);
-            $("#description_weather").html(json.weather[0].description);
-            $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png");
-            $("#temperature").html(json.main.temp);
-            $("#pressure").html(json.main.pressure);;
-            $("#humidity").html(json.main.humidity);;
-        });
-    })
-
-    // Optional Code for temperature conversion
-    var fahrenheit = true;
-
-    $("#convertToCelsius").click(function() {
-        if (fahrenheit) {
-            $("#temperature").text(((($("#temperature").text() - 32) * 5) / 9));
-        }
-        fahrenheit = false;
-    });
-
-    $("#convertToFahrenheit").click(function() {
-        if (fahrenheit == false) {
-            $("#temperature").text((($("#temperature").text() * (9/5)) + 32));
-        }
-        fahrenheit = true;
-    });
-});
 </pre>
                         </ol>
                     </div>
@@ -224,8 +165,7 @@ $( document ).ready(function() {
     <!-- Custom Theme JavaScript -->
     <script src="../js/creative.js"></script>
 
-    <script src="../js/weather_script.js"></script>
-
+    <script src="../js/mashape.js"></script>
 </body>
 
 </html>

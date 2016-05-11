@@ -25,7 +25,7 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
+    color: white;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -184,10 +184,6 @@ header {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-.weather_header {
-    background-image: url(../img/rain.jpg);
 }
 
 header .header-content {
@@ -487,4 +483,13 @@ input {
 /* Styling for Weather Map API */
 li a {
     color: white;
+}
+
+.weather_header {
+    background-image: url(../img/rain.jpg);
+}
+
+/* Styling for Mashable API */
+.mashable_header {
+    background-image: url(../img/json.jpg);
 }
