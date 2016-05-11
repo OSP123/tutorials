@@ -161,6 +161,15 @@ $( document ).ready(function() {
             $("#humidity").html(json.main.humidity);;
         });
     })
+
+    // Optional Code for temperature conversion
+    $("#convertToCelsius").click(function(){
+        $("#temperature").text(((($("#temperature").text() - 32) * 5) / 9));
+    });
+
+    $("#convertToFahrenheit").click(function(){
+        $("#temperature").text((($("#temperature").text() * (9/5)) + 32));
+    });
 });
 </pre>
                         </ol>

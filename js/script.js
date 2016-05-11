@@ -24,12 +24,10 @@ $( document ).ready(function() {
 
 	$("#convertToCelsius").click(function(){
 		$("#temperature").text(((($("#temperature").text() - 32) * 5) / 9));
-		console.log($("#temperature").text());
 	});
 
 	$("#convertToFahrenheit").click(function(){
 		$("#temperature").text((($("#temperature").text() * (9/5)) + 32));
-		console.log($("#temperature").text());
 	});
 
 });
