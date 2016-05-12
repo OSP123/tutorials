@@ -86,39 +86,51 @@
                     <hr class="light">
                     <div class="text-left">
                         <ol>
-                            <li class="text-faded">First off, there is already a code snippet that was posted on Mashape's site on how to access the different APIs via AJAX:  <a href="http://blog.mashape.com/mashape-sample-code-executing-ajax-request-using-jquery/" target="_blank">Mashape Snippet</a></li>
                             <li class="text-faded">Let's use that snippet to try and implement a couple of APIs from Mashable.</li>
-                            <li class="text-faded">Get yourself an API key from the following <a href="http://openweathermap.org/appid">url</a></li>
-                            <li class="text-faded">We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</li>
-                            <li class="text-faded">Let's go ahead and create the HTML for the code.</li>
+                            <li class="text-faded">Get yourself an API key by following these instructions: <a href="http://docs.mashape.com/api-keys">url</a></li>
+                            <li class="text-faded">We'll start off by using the Yoda Speak API</li>
+                            <li class="text-faded">Here, we create the HTML for the code.</li>
                             <pre>
 &lt;div class="row"&gt;
     &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
-        &lt;input type="text" placeholder="City"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
-        &lt;input type="text" placeholder="Zip Code"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
-        &lt;input type="text" placeholder="GeoLocation"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
+        &lt;h1&gt;Go ahead, try it out!&lt;/h1&gt;
+        &lt;input id="yoda_input" type="text"&gt;&lt;button type="button" class="text_process btn btn-default btn-sm"&gt;Yoda Translate&lt;/button&gt;&lt;br&gt;
+        &lt;input id="text_process_input" type="text"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
     &lt;/div&gt;
 &lt;/div&gt;
-
 &lt;div class="row"&gt;
     &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
-        &lt;h2&gt;City: &lt;span id="city"&gt;&lt;/span&gt;&lt;/h2&gt;
-        &lt;h2&gt;Main Weather: &lt;span id="main_weather"&gt;&lt;/span&gt;&lt;/h2&gt;
-        &lt;h2&gt;Description: &lt;span id="description_weather"&gt;&lt;/span&gt;&lt;/h2&gt;
-        &lt;img id="weather_image" src=""&gt;
-        &lt;h2&gt;Temperature: &lt;span id="temperature"&gt;&lt;/span&gt;&lt;/h2&gt;
-        &lt;h2&gt;Pressure: &lt;span id="pressure"&gt;&lt;/span&gt;&lt;/h2&gt;
-        &lt;h2&gt;Humidity: &lt;span id="humidity"&gt;&lt;/span&gt;&lt;/h2&gt;
+        &lt;h2&gt;Output: &lt;span id="output"&gt;&lt;/span&gt;&lt;/h2&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-                            <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
+                            <li class="text-faded">Next, we're going to add the functionality. We'll use a click function.</li>
                             <pre>
+$(".text_process").click(function(){
 
+});
 </pre>
                             <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</li>
                             <pre>
+$(".text_process").click(function(){
 
+    $.ajax({
+        url: 'https://yoda.p.mashape.com/yoda?sentence=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        type: 'GET', // The HTTP Method
+        data: {sentence: $("#yoda_input").val()}, // Additional parameters here
+        datatype: 'json',
+        success: function (data) {
+            $("#output").html(data);
+        },
+        error: function (err) {
+            alert(err);
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("X-Mashape-Authorization", "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp"); // Enter here your Mashape key
+        }
+    });
+
+});
 </pre>
                             <li class="text-faded">Using the weather variable, we can now query the data from the API and insert it into our HTML.</li>
                             <pre>
@@ -131,19 +143,13 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h1>Go ahead, try it out!</h1>
-                    <input id="text_process_input" type="text" placeholder="City"><button type="button" class="text_process btn btn-default btn-sm">Search</button><br>
-                    <input type="text" placeholder="Zip Code"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
+                    <input id="yoda_input" type="text"><button type="button" class="text_process btn btn-default btn-sm">Yoda Translate</button><br>
+                    <input id="text_process_input" type="text"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2>Output: <span id="output"></span></h2>
-                    <h2>Main Weather: <span id="main_weather"></span></h2>
-                    <h2>Description: <span id="description_weather"></span></h2>
-                    <img id="weather_image" src="">
-                    <h2>Temperature: <span id="temperature"></span></h2>
-                    <h2>Pressure: <span id="pressure"></span></h2>
-                    <h2>Humidity: <span id="humidity"></span></h2>
                 </div>
             </div>
         </div>
