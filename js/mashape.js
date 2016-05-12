@@ -1,12 +1,28 @@
 $( document ).ready(function() {
 
-	$(".text_process").click(function(){
+	// $(".text_process").click(function(){
 
-        var input = $(this).prev().val();
+ //        var input = $(this).prev().val();
 
-        $.getJSON("//loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=" + convertedInput, function( data ) {
-           $('#output').append(data.contents.translated);
-        });
+ //        $.getJSON("//loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=" + convertedInput, function( data ) {
+ //           $('#output').append(data.contents.translated);
+ //        });
+ //    });
+
+    $.ajax({
+        url: 'https://yoda.p.mashape.com/yoda', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        type: 'GET', // The HTTP Method
+        data: {sentence: $("#boxArea").val()}, // Additional parameters here
+        datatype: 'json',
+        success: function (data) {
+            alert(data);
+        },
+        error: function (err) {
+            alert(err);
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("X-Mashape-Authorization", "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp"); // Enter here your Mashape key
+        }
     });
 
     // $(".query_btn").click(function(){
