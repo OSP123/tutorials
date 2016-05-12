@@ -11,7 +11,7 @@ $( document ).ready(function() {
                 $("#output").html(data);
             },
             error: function (err) {
-                alert(err);
+                $("#output").html(err);
             },
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("X-Mashape-Authorization", "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp"); // Enter here your Mashape key
