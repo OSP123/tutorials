@@ -28,7 +28,7 @@ $( document ).ready(function() {
             data: {text: $("#text_process_input").val()}, // Additional parameters here
             datatype: 'json',
             success: function (data) {
-                var str = JSON.stringify(obj, null, 4);
+                var str = JSON.stringify(data, null, 4);
                 $("#output").html(str);
             },
             error: function (err) {
