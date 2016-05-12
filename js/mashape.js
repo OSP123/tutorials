@@ -9,7 +9,7 @@ $( document ).ready(function() {
             datatype: 'json',
             success: function (data) {
                 // $("#output").html(data);
-                alert(data);
+                $("#output").text(data);
             },
             error: function (err) {
                 alert(err);
