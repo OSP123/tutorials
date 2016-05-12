@@ -2,12 +2,11 @@ $( document ).ready(function() {
 
 	$(".text_process").click(function(){
 
-
-
         var input = $(this).prev().val();
 
-        console.log(input);
-        $.getJSON("//loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=" + input, function( data ) {
+        var convertedInput = input.replace(/ /g, "+");
+
+        $.getJSON("//loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=" + convertedInput, function( data ) {
            $('#output').append(data.contents.translated);
         });
     });
