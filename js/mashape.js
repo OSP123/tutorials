@@ -4,8 +4,6 @@ $( document ).ready(function() {
 
         var input = $(this).prev().val();
 
-        var convertedInput = input.replace(/ /g, "+");
-
         $.getJSON("//loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=" + convertedInput, function( data ) {
            $('#output').append(data.contents.translated);
         });
