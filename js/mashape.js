@@ -28,12 +28,12 @@ $( document ).ready(function() {
             data: {text: $("#text_process_input").val()}, // Additional parameters here
             datatype: 'json',
             success: function (data) {
-                $("#api-author").html(data.api-author);
-                $("#api-usage").html(data.api-usage);
-                $("#sentiment-text").html(data.sentiment-text);
-                $("#sentiment-score").html(data.sentiment-score);
-                $("#status").html(data.status);
-                $("#language").html(data.language);
+                $("#api-author").html(data["api-author"]);
+                $("#api-usage").html(data["api-usage"]);
+                $("#sentiment-text").html(data["sentiment-text"]);
+                $("#sentiment-score").html(data["sentiment-score"]);
+                $("#status").html(data["status"]);
+                $("#language").html(data["language"]);
             },
             error: function (err) {
                 alert(err);
