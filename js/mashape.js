@@ -3,7 +3,7 @@ $( document ).ready(function() {
 	$(".yoda_button").click(function(){
 
         $.ajax({
-            url: 'https://yoda.p.mashape.com/yoda?sentence=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+            url: '//yoda.p.mashape.com/yoda?sentence=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
             type: 'GET', // The HTTP Method
             data: {sentence: $("#yoda_input").val()}, // Additional parameters here
             datatype: 'json',
