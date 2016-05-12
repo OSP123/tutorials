@@ -105,13 +105,13 @@
 &lt;/div&gt;
 </pre>
                             <li class="text-faded">Next, we're going to add the functionality. We'll use a click function.</li>
-                            <pre>
+<pre>
 $(".text_process").click(function(){
 
 });
 </pre>
                             <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</li>
-                            <pre>
+<pre>
 $(".text_process").click(function(){
 
     $.ajax({
@@ -141,13 +141,51 @@ $(".text_process").click(function(){
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h1>Go ahead, try it out!</h1>
                     <input id="yoda_input" type="text"><button type="button" class="yoda_button btn btn-default btn-sm">Yoda Translate</button><br>
-                    <input id="text_process_input" type="text"><button type="button" class="text_process_button btn btn-default btn-sm">Text Processing</button><br>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2>Output: <span id="output"></span></h2>
                 </div>
+            </div>
+<br>
+<br>
+<ol>
+    <li class="text-faded">Now, let's start working on another API: Free Natural Language Processing Service</li>
+    <li class="text-faded">We're going to go through the same process as we did before, except we're just going to change the HTML and javaScript a bit.</li>
+    <li class="text-faded">We'll start off by using the Yoda Speak API. I'm basing this tutoriol off of a fiddle I found <a href="http://jsfiddle.net/victorrseloy/dys8P/">online</a></li>
+    <li class="text-faded">Here, we create the HTML for the code.</li>
+</ol>
+<pre>
+    $(".text_process_button").click(function(){
+
+        $.ajax({
+            url: 'https://loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+            type: 'GET', // The HTTP Method
+            data: {text: $("#text_process_input").val()}, // Additional parameters here
+            datatype: 'json',
+            success: function (data) {
+                $("#api-author").html(data["api-author"]);
+                $("#api-usage").html(data["api-usage"]);
+                $("#sentiment-text").html(data["sentiment-text"]);
+                $("#sentiment-score").html(data["sentiment-score"]);
+                $("#status").html(data["status"]);
+                $("#language").html(data["language"]);
+            },
+            error: function (err) {
+                alert(err);
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp"); // Enter here your Mashape key
+            }
+        });
+
+    });
+</pre>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <input id="text_process_input" type="text"><button type="button" class="text_process_button btn btn-default btn-sm">Text Processing</button><br>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2>API-author: <span id="api-author"></span></h2>
                     <h2>API-Usage: <span id="api-usage"></span></h2>
