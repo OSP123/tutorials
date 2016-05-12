@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
 	$(".text_process").click(function(){
 
-    var input = $('input')[0].val();
+    var input = $(this).prev()[0].val();
         $.getJSON("//loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=" + input, function( data ) {
            $('#output').append(data.contents.translated);
         });
