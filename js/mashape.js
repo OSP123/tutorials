@@ -9,10 +9,12 @@ $( document ).ready(function() {
  //        });
  //    });
 
+    console.log($("#text_process_input").val());
+
     $.ajax({
-        url: 'https://yoda.p.mashape.com/yoda', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        url: 'https://yoda.p.mashape.com/yoda?sentence=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
         type: 'GET', // The HTTP Method
-        data: {sentence: $(".text_process").prev().val()}, // Additional parameters here
+        data: {sentence: $("#text_process_input").val()}, // Additional parameters here
         datatype: 'json',
         success: function (data) {
             alert(data);
