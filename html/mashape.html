@@ -85,12 +85,15 @@
                     <h2 class="section-heading">In this tutorial, we are going to learn how to use APIs from <a href="https://market.mashape.com/explore" target="_blank">Mashape</a></h2>
                     <hr class="light">
                     <div class="text-left">
-                        <ol>
+                        <ul>
                             <li class="text-faded">Let's use that snippet to try and implement a couple of APIs from Mashable.</li>
                             <li class="text-faded">Get yourself an API key by following these instructions: <a href="http://docs.mashape.com/api-keys">url</a></li>
-                            <li class="text-faded">We'll start off by using the Yoda Speak API. I'm basing this tutoriol off of a fiddle I found <a href="http://jsfiddle.net/victorrseloy/dys8P/">online</a></li>
+                        </ul>
+                        <ol>
+                            <h2>Yoda Speak API</h2>
+                            <li class="text-faded">We'll start off by using the Yoda Speak API. I'm basing this tutorial off of a fiddle I found <a href="http://jsfiddle.net/victorrseloy/dys8P/">online</a></li>
                             <li class="text-faded">Here, we create the HTML for the code.</li>
-                            <pre>
+<pre>
 &lt;div class="row"&gt;
     &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
         &lt;h1&gt;Go ahead, try it out!&lt;/h1&gt;
@@ -110,7 +113,14 @@ $(".text_process").click(function(){
 
 });
 </pre>
-                            <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</li>
+                            <li class="text-faded">Now, we're going to use ajax in order to query the url from the API. We'll also be sending the sentence that we want translated as part of the url parameters and then insert the returned Yoda Speak version of the sentence into an HTML element.</li>
+                                <ol>The AJAX request for our API is going to take several properties and values:
+                                    <li class="text-faded">url: this will be where we put the url of the API we're requesting.</li>
+                                    <li class="text-faded">data: these are additional parameters we can send with the request. Note that each API will take different parameters, so read the documentation carefully. In this case, the sentence will be the string that will be appended to the url and then evaluated by the API.</li>
+                                    <li class="text-faded">success: what to do if the AJAX request is successful. In our case, we're going to print out the data from the API response (hopefully, the Yoda translated string).</li>
+                                    <li class="text-faded">error: what to do if the AJAX request runs into an error.</li>
+                                    <li class="text-faded">beforeSend: Runs before the rest of the request runs. If beforeSend returns false, the rest of the request doesn't go through. In our case, we're going to be sending the API key to make sure we are authenticated.</li>
+                                </ol>
 <pre>
 $(".text_process").click(function(){
 
@@ -139,7 +149,7 @@ $(".text_process").click(function(){
 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h1>Go ahead, try it out!</h1>
+                    <h2>Go ahead, try it out!</h2>
                     <input id="yoda_input" type="text"><button type="button" class="yoda_button btn btn-default btn-sm">Yoda Translate</button><br>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -148,12 +158,10 @@ $(".text_process").click(function(){
             </div>
 <br>
 <br>
+<h2>Free Natural Language Processing Service API</h2>
 <ol>
     <li class="text-faded">Now, let's start working on another API: Free Natural Language Processing Service</li>
     <li class="text-faded">We're going to go through the same process as we did before, except we're just going to change the HTML and javaScript a bit.</li>
-    <li class="text-faded">We'll start off by using the Yoda Speak API. I'm basing this tutoriol off of a fiddle I found <a href="http://jsfiddle.net/victorrseloy/dys8P/">online</a></li>
-    <li class="text-faded">Here, we create the HTML for the code.</li>
-</ol>
 <pre>
 &lt;div class="row"&gt;
     &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
@@ -172,6 +180,7 @@ $(".text_process").click(function(){
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
+</ol>
 <pre>
     $(".text_process_button").click(function(){
 
@@ -200,7 +209,8 @@ $(".text_process").click(function(){
 </pre>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                <input id="text_process_input" type="text"><button type="button" class="text_process_button btn btn-default btn-sm">Text Processing</button><br>
+                    <h2>Go ahead, try it out!</h2>
+                    <input id="text_process_input" type="text"><button type="button" class="text_process_button btn btn-default btn-sm">Text Processing</button><br>
                 </div>
             </div>
             <div class="row">
