@@ -8,7 +8,8 @@ $( document ).ready(function() {
             data: {sentence: $("#text_process_input").val()}, // Additional parameters here
             datatype: 'json',
             success: function (data) {
-                $("#output").html(data);
+                // $("#output").html(data);
+                alert(data);
             },
             error: function (err) {
                 alert(err);
