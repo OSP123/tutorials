@@ -490,6 +490,20 @@ li a {
 }
 
 /* Styling for Mashable API */
-.mashable_header {
+.mashape_header {
     background-image: url(../img/json.jpg);
+}
+
+.bg-primary-mashape {
+    background-color: #51B378;
+}
+
+
+/* Styling for OMDb API */
+.omdb_header {
+    background-image: url(../img/json_colored.jpg);
+}
+
+.bg-primary-omdb {
+    background-color: #096588;
 }
