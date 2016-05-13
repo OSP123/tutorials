@@ -47,6 +47,24 @@ $( document ).ready(function() {
 
     });
 
-    
+    $(".famous_quotes_button").click(function(){
 
+        $.ajax({
+            url: 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+            type: 'GET', // The HTTP Method
+            data: {sentence: $("#famous_quotes_input").val()}, // Additional parameters here
+            datatype: 'json',
+            success: function (data) {
+                $(".quote_output").html(data);
+                alert(data);
+            },
+            error: function (err) {
+                $(".quote_output").html(err);
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp"); // Enter here your Mashape key
+            }
+        });
+
+    });
 });
