@@ -10,7 +10,6 @@ $( document ).ready(function() {
             datatype: 'json',
             success: function (data) {
                 $("#output").html(data);
-                alert(data);
             },
             error: function (err) {
                 $("#output").html(err);
@@ -56,7 +55,6 @@ $( document ).ready(function() {
             datatype: 'json',
             success: function (data) {
                 $(".quote_output").html(data);
-                alert(data);
             },
             error: function (err) {
                 $(".quote_output").html(err);
