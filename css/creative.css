@@ -507,3 +507,7 @@ li a {
 .bg-primary-omdb {
     background-color: #096588;
 }
+
+#output {
+    color: white;
+}
