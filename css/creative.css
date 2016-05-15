@@ -508,6 +508,6 @@ li a {
     background-color: #096588;
 }
 
-#output {
+#output, .pretty {
     color: white;
 }
