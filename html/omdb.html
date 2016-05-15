@@ -132,6 +132,7 @@ $("#omdb_submit").click(function(){
     var title = $("#title").val();
     var year = $("#year").val(); 
     // Concatenate those variables to a query string.
+    // Note: If you get errors about mixed protocols, then just change the url below to be in https format
     var queryString = "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
     // Put that query string into the AJAX request
     $.ajax({
@@ -165,7 +166,7 @@ $("#omdb_submit").click(function(){
                     <h2>Raw Output: <span id="output"></span></h2>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2>Make me Pretty: <span id="output"></span></h2>
+                    <h2>Make me Pretty: <span class="output"></span></h2>
                 </div>
             </div>
         </div>
