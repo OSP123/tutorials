@@ -147,7 +147,7 @@ $("#omdb_submit").click(function(){
                 $("#output").html(JSON.stringify(response));
 
                 // create an HTML element that will hold all of the prettified elements
-                var movieContainer = $('<div class="movie_Container">');
+                var movieContainer = $('&lt;div class="movie_Container"&gt;');
                 // Append the movie container to the existing container
                 $(".pretty_movie_output").append(movieContainer);
 
@@ -155,9 +155,9 @@ $("#omdb_submit").click(function(){
                 for(var prop in response) {
                     var element;
                     if (prop == "Poster" && response[prop] != "N/A") {
-                        element = $("<img class='pretty'>").attr("src", response[prop]);
+                        element = $("&lt;img class='pretty'&gt;").attr("src", response[prop]);
                     } else {
-                        element = $("<h3 class='pretty'>").text(prop + ": " + response[prop]);
+                        element = $("&lt;h3 class='pretty'&gt;").text(prop + ": " + response[prop]);
                     }
          
                     movieContainer.append(element);
