@@ -12,13 +12,18 @@ $( document ).ready(function() {
             method: 'GET'
         }).done(function(response) {
         	if(response.length < 1) {
+        		// Output error message into output container
         		$("#output").html("Sorry, no movies were found :(");
     		} else {
+    			// Output data into output container
     			$("#output").html(JSON.stringify(response));
 
+    			// create an HTML element that will hold all of the prettified elements
     			var movieContainer = $('<div class="movie_Container">');
+    			// Append the movie container to the existing container
     			$(".pretty_movie_output").append(movieContainer);
 
+    			// Go through each property of the object and create/input the data from the object
     			for(var prop in response) {
     				var element;
     				if (prop == "Poster" && response[prop] != "N/A") {
@@ -31,6 +36,6 @@ $( document ).ready(function() {
 				}
     		}
         });
-		// Output data into output container
+		
 	});
 });
