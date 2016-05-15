@@ -125,7 +125,7 @@ $("#omdb_submit").click(function(){
     var queryString = "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
 });
 </pre> 
-                            <li class="text-faded"></li>
+                            <li class="text-faded">Finally, we'll add our complicated AJAX into the mix. The AJAX function will query the url we passed to it and once done, we'll then output our data into our html. Take a look at th at the comments in the code for more details.</li>
 <pre>
 $("#omdb_submit").click(function(){
         //Gather values from the other fields and store them into variables.
