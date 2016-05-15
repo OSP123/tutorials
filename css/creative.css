@@ -25,7 +25,7 @@ hr.light {
 }
 
 a {
-    color: #f05f40;
+    color: white;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -178,16 +178,12 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(../img/header.jpg);
+    background-image: url(../img/coding_background.jpg);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-.weather_header {
-    background-image: url(../img/rain.jpg);
 }
 
 header .header-content {
@@ -482,4 +478,36 @@ body {
 
 input {
     color: black;
+}
+
+/* Styling for Weather Map API */
+li a {
+    color: white;
+}
+
+.weather_header {
+    background-image: url(../img/rain.jpg);
+}
+
+/* Styling for Mashable API */
+.mashape_header {
+    background-image: url(../img/json.jpg);
+}
+
+.bg-primary-mashape {
+    background-color: #51B378;
+}
+
+
+/* Styling for OMDb API */
+.omdb_header {
+    background-image: url(../img/json_colored.jpg);
+}
+
+.bg-primary-omdb {
+    background-color: #096588;
+}
+
+#output {
+    color: white;
 }

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web Tutorials</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/creative.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../index.html">Web Testing</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="weatherAPI.html">Weather API</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="mashape.html">Mashape APIs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="omdb.html">OMDb API</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header class="mashape_header">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Using the Mashape APIs</h1>
+                <hr>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary-mashape" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">In this tutorial, we are going to learn how to use APIs from <a href="https://market.mashape.com/explore" target="_blank">Mashape</a></h2>
+                    <hr class="light">
+                    <div class="text-left">
+                        <ul>
+                            <li class="text-faded">Let's use that snippet to try and implement a couple of APIs from Mashable.</li>
+                            <li class="text-faded">Get yourself an API key by following these instructions: <a href="http://docs.mashape.com/api-keys">url</a></li>
+                        </ul>
+                        <ol>
+                            <h2>Yoda Speak API</h2>
+                            <li class="text-faded">We'll start off by using the Yoda Speak API. I'm basing this tutorial off of a fiddle I found <a href="http://jsfiddle.net/victorrseloy/dys8P/">online</a></li>
+                            <li class="text-faded">Here, we create the HTML for the code.</li>
+<pre>
+&lt;div class="row"&gt;
+    &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
+        &lt;h1&gt;Go ahead, try it out!&lt;/h1&gt;
+        &lt;input id="yoda_input" type="text"&gt;&lt;button type="button" class="text_process btn btn-default btn-sm"&gt;Yoda Translate&lt;/button&gt;&lt;br&gt;
+        &lt;input id="text_process_input" type="text"&gt;&lt;button type="button" class="query_btn btn btn-default btn-sm"&gt;Search&lt;/button&gt;&lt;br&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+    &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
+        &lt;h2&gt;Output: &lt;span id="output"&gt;&lt;/span&gt;&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+                            <li class="text-faded">Next, we're going to add the functionality. We'll use a click function.</li>
+<pre>
+$(".text_process").click(function(){
+
+});
+</pre>
+                            <li class="text-faded">Now, we're going to use ajax in order to query the url from the API. We'll also be sending the sentence that we want translated as part of the url parameters and then insert the returned Yoda Speak version of the sentence into an HTML element.</li>
+                                <ol>The AJAX request for our API is going to take several properties and values:
+                                    <li class="text-faded">url: this will be where we put the url of the API we're requesting.</li>
+                                    <li class="text-faded">data: these are additional parameters we can send with the request. Note that each API will take different parameters, so read the documentation carefully. In this case, the sentence will be the string that will be appended to the url and then evaluated by the API.</li>
+                                    <li class="text-faded">success: what to do if the AJAX request is successful. In our case, we're going to print out the data from the API response (hopefully, the Yoda translated string).</li>
+                                    <li class="text-faded">error: what to do if the AJAX request runs into an error.</li>
+                                    <li class="text-faded">beforeSend: Runs before the rest of the request runs. If beforeSend returns false, the rest of the request doesn't go through. In our case, we're going to be sending the API key to make sure we are authenticated.</li>
+                                </ol>
+<pre>
+$(".text_process").click(function(){
+
+    $.ajax({
+        url: 'https://yoda.p.mashape.com/yoda?sentence=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        type: 'GET', // The HTTP Method
+        data: {sentence: $("#yoda_input").val()}, // Additional parameters here
+        datatype: 'json',
+        success: function (data) {
+            $("#output").html(data);
+        },
+        error: function (err) {
+            alert(err);
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("X-Mashape-Authorization", "API KEY"); // Enter here your Mashape key
+        }
+    });
+
+});
+</pre>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Go ahead, try it out!</h2>
+                    <input id="yoda_input" type="text"><button type="button" class="yoda_button btn btn-default btn-sm">Yoda Translate</button><br>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Output: <span id="output"></span></h2>
+                </div>
+            </div>
+<br>
+<br>
+<h2>Free Natural Language Processing Service API</h2>
+<ol>
+    <li class="text-faded">Now, let's start working on another API: Free Natural Language Processing Service</li>
+    <li class="text-faded">We're going to go through the same process as we did before, except we're just going to change the HTML and javaScript a bit.</li>
+<pre>
+&lt;div class="row"&gt;
+    &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
+        &lt;input id="text_process_input" type="text"&gt;&lt;button type="button" class="text_process_button btn btn-default btn-sm"&gt;Text Processing&lt;/button&gt;&lt;br&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
+            &lt;h2&gt;API-author: &lt;span id="api-author"&gt;&lt;/span&gt;&lt;/h2&gt;
+            &lt;h2&gt;API-Usage: &lt;span id="api-usage"&gt;&lt;/span&gt;&lt;/h2&gt;
+            &lt;h2&gt;Sentiment Text: &lt;span id="sentiment-text"&gt;&lt;/span&gt;&lt;/h2&gt;
+            &lt;h2&gt;Sentiment Score: &lt;span id="sentiment-score"&gt;&lt;/span&gt;&lt;/h2&gt;
+            &lt;h2&gt;Status: &lt;span id="status"&gt;&lt;/span&gt;&lt;/h2&gt;
+            &lt;h2&gt;Language: &lt;span id="language"&gt;&lt;/span&gt;&lt;/h2&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+</ol>
+<pre>
+    $(".text_process_button").click(function(){
+
+        $.ajax({
+            url: 'https://loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/?text=', // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+            type: 'GET', // The HTTP Method
+            data: {text: $("#text_process_input").val()}, // Additional parameters here
+            datatype: 'json',
+            success: function (data) {
+                $("#api-author").html(data["api-author"]);
+                $("#api-usage").html(data["api-usage"]);
+                $("#sentiment-text").html(data["sentiment-text"]);
+                $("#sentiment-score").html(data["sentiment-score"]);
+                $("#status").html(data["status"]);
+                $("#language").html(data["language"]);
+            },
+            error: function (err) {
+                alert(err);
+            },
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Mashape-Authorization", "WiNaHz5SylmshT0YdDN3OQxNVf5np1xQoxNjsnpmJSREuIgvnp"); // Enter here your Mashape key
+            }
+        });
+
+    });
+</pre>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Go ahead, try it out!</h2>
+                    <input id="text_process_input" type="text"><button type="button" class="text_process_button btn btn-default btn-sm">Text Processing</button><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>API-author: <span id="api-author"></span></h2>
+                    <h2>API-Usage: <span id="api-usage"></span></h2>
+                    <h2>Sentiment Text: <span id="sentiment-text"></span></h2>
+                    <h2>Sentiment Score: <span id="sentiment-score"></span></h2>
+                    <h2>Status: <span id="status"></span></h2>
+                    <h2>Language: <span id="language"></span></h2>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Random Quote Generation</h2>
+                    <select id="famous_quotes_input">
+                      <option value="movies">Movies</option>
+                      <option value="famous">Famous</option>
+                    </select>
+                    <button type="button" class="famous_quotes_button btn btn-default btn-sm">Quote Generation</button><br>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Output: <span class="quote_output"></span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/jquery.fittext.js"></script>
+    <script src="../js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/creative.js"></script>
+
+    <script src="../js/mashape.js"></script>
+</body>
+
+</html>

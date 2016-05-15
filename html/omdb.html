@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web Tutorials</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/creative.css" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="../index.html">Web Testing</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="weatherAPI.html">Weather API</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="mashape.html">Mashape APIs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="omdb.html">OMDb API</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header class="omdb_header">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Using the OMDb API</h1>
+                <hr>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary-omdb" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">In this tutorial, we are going to learn how to use the OMDb API: <a href="http://omdbapi.com/" target="_blank">link</a></h2>
+                    <hr class="light">
+                    <div class="text-left">
+<!--                         <ul>
+                            <li class="text-faded">Let's use that snippet to try and implement a couple of APIs from Mashable.</li>
+                            <li class="text-faded">Get yourself an API key by following these instructions: <a href="http://docs.mashape.com/api-keys">url</a></li>
+                        </ul> -->
+                        <ol>
+                            <li class="text-faded">First, try reading through the documentation provided in the link above. Notice that we will have to use a url with parameters placed in the url in order to gather the data we need.</li>
+                            <li class="text-faded">Here, we create the HTML for the code.</li>
+<pre>
+&lt;form class="form-inline" role="form" id="omdb_form"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="sr-only" for="title"&gt;Title:&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="title" placeholder="Title"&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="sr-only" for="year"&gt;Year:&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="year" placeholder="Year"&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-default"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</pre>
+                            <li class="text-faded">Next, we're going to add the functionality. We'll use a click function to start off our query.</li>
+<pre>
+$("#omdb_submit").click(function(){
+
+});
+</pre>                      
+                            <li class="text-faded">Next, let's store the title and year values that users input into variables. These variables will then be used in the url string.</li>
+                            <li class="text-faded">Now that we have the variables, we can concatenate them into a query string. This query string is going to be our url that we send to the API.</li>
+<pre>
+$("#omdb_submit").click(function(){
+    //Gather values from the other fields and store them into variables.
+    var title = $("#title").val();
+    var year = $("#year").val(); 
+    // Concatenate those variables to a query string.
+    var queryString = "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
+});
+</pre> 
+                            <li class="text-faded"></li>
+<pre>
+$("#omdb_submit").click(function(){
+    //Gather values from the other fields and store them into variables.
+    var title = $("#title").val();
+    var year = $("#year").val(); 
+    // Concatenate those variables to a query string.
+    // Note: If you get errors about mixed protocols, then just change the url below to be in https format
+    var queryString = "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
+    // Put that query string into the AJAX request
+    $.ajax({
+        url: queryString, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
+        method: 'GET'
+    }).done(function(response) {
+        $("#output").html(response);
+    });
+    // Output data into output container
+});
+</pre>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Go ahead, try it out!</h2>
+                      <div class="col-lg-4">
+                        <label class="sr-only" for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" placeholder="Title">
+                      </div>
+                      <div class="col-lg-4">
+                        <label class="sr-only" for="year">Year:</label>
+                        <input type="text" class="form-control" id="year" placeholder="Year">
+                      </div>
+                      <button class="btn btn-default" id="omdb_submit">Submit</button>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Raw Output: <span id="output"></span></h2>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2>Make me Pretty: <span class="output"></span></h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../js/jquery.easing.min.js"></script>
+    <script src="../js/jquery.fittext.js"></script>
+    <script src="../js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/creative.js"></script>
+
+    <script src="../js/omdb.js"></script>
+</body>
+
+</html>
