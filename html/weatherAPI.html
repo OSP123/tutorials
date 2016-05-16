@@ -77,6 +77,7 @@
                 <h1>Using a Weather API</h1>
                 <hr>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
+                <a href="#try" class="btn btn-primary btn-xl page-scroll">Demo</a>
             </div>
         </div>
     </header>
@@ -114,6 +115,7 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
+                            <li class="text-faded">Before we add the code, be sure that you have jQuery installed.</li>
                             <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
                             <pre>
 $( document ).ready(function() {
@@ -192,7 +194,8 @@ $( document ).ready(function() {
 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h1>Go ahead, try it out!</h1>
+                    <h1 id="try">Go ahead, try it out!</h1>
+                    <h2>Note that this will not work if the url is set to "https". Simply change the url to "http" in the browser and it should work.</h2>
                     <input type="text" placeholder="City"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                     <input type="text" placeholder="Zip Code"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                 </div>
