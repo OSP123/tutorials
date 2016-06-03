@@ -494,6 +494,19 @@ li a {
     background-image: url(../img/json.jpg);
 }
 
+.firebase_header {
+    background-image: url(../img/firebase-logo.png);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-color: black;
+    background-position: 50% 40%;
+}
+
+.firebase_header .header-content-inner {
+    position: relative;
+    top: 5em;
+}
+
 .bg-primary-mashape {
     background-color: #51B378;
 }
