@@ -64,6 +64,12 @@
                     <li>
                         <a class="page-scroll" href="firebase.html">Firebase</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="phonegap.html">PhoneGap</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="es_6.html">EcmaScript 6</a>
+                    </li>
                 </ul> 
             </div>
             <!-- /.navbar-collapse -->
@@ -164,8 +170,8 @@ $( document ).ready(function() {
             $("#description_weather").html(json.weather[0].description);
             $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png");
             $("#temperature").html(json.main.temp);
-            $("#pressure").html(json.main.pressure);;
-            $("#humidity").html(json.main.humidity);;
+            $("#pressure").html(json.main.pressure);
+            $("#humidity").html(json.main.humidity);
         });
     })
 

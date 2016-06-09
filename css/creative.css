@@ -525,3 +525,15 @@ li a {
     color: white;
 }
 
+/* Styling for ES6 */
+.es6_header {
+    background-image: url(../img/es6.jpg);
+}
+.bg-primary-es6 {
+    background-color: #096588;
+    color: white;
+}
+
+.bg-primary-es6 a {
+    color: #ff983b;
+}
