@@ -51,20 +51,26 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
+               <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">APIs
+                      <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="weatherAPI.html">Weather API</a></li>
+                        <li><a href="mashape.html">Mashape APIs</a></li>
+                        <li><a href="omdb.html">OMDb API</a></li> 
+                      </ul>
                     </li>
                     <li>
-                        <a class="page-scroll" href="weatherAPI.html">Weather API</a>
+                        <a class="page-scroll" href="firebase.html">Firebase</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="mashape.html">Mashape APIs</a>
+                        <a class="page-scroll" href="phonegap.html">PhoneGap</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="omdb.html">OMDb API</a>
+                        <a class="page-scroll" href="es_6.html">EcmaScript 6</a>
                     </li>
-                </ul>
+                </ul> 
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -77,6 +83,7 @@
                 <h1>Using a Weather API</h1>
                 <hr>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
+                <a href="#try" class="btn btn-primary btn-xl page-scroll">Demo</a>
             </div>
         </div>
     </header>
@@ -91,7 +98,7 @@
                         <ol>
                             <li class="text-faded">Here's a great video on getting started with the <a href="https://www.youtube.com/watch?v=53AoDB7vcbU">OpenWeatherMap</a></li>
                             <li class="text-faded">Once you're done watching the video, you should have a basic understanding of running these queries. Now, let's set them up.</li>
-                            <li class="text-faded">Get yourself an API key from the following <a href="http://openweathermap.org/appid">url</a></li>
+                            <li class="text-faded">Get yourself an API key from the following <a href="http://openweathermap.org/appid" target="_blank">url</a></li>
                             <li class="text-faded">We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</li>
                             <li class="text-faded">Let's go ahead and create the HTML for the code.</li>
                             <pre>
@@ -114,6 +121,7 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
+                            <li class="text-faded">Before we add the code, be sure that you have jQuery installed.</li>
                             <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
                             <pre>
 $( document ).ready(function() {
@@ -162,8 +170,8 @@ $( document ).ready(function() {
             $("#description_weather").html(json.weather[0].description);
             $("#weather_image").attr("src", "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png");
             $("#temperature").html(json.main.temp);
-            $("#pressure").html(json.main.pressure);;
-            $("#humidity").html(json.main.humidity);;
+            $("#pressure").html(json.main.pressure);
+            $("#humidity").html(json.main.humidity);
         });
     })
 
@@ -192,7 +200,8 @@ $( document ).ready(function() {
 
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h1>Go ahead, try it out!</h1>
+                    <h1 id="try">Go ahead, try it out!</h1>
+                    <h2>Note that this will not work if the url is set to "https". Simply change the url to "http" in the browser and it should work.</h2>
                     <input type="text" placeholder="City"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                     <input type="text" placeholder="Zip Code"><button type="button" class="query_btn btn btn-default btn-sm">Search</button><br>
                 </div>
@@ -227,6 +236,17 @@ $( document ).ready(function() {
     <script src="../js/creative.js"></script>
 
     <script src="../js/weather_script.js"></script>
+
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65206298-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 </body>
 

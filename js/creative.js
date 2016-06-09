@@ -22,11 +22,6 @@
         offset: 51
     })
 
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
-    });
-
     // Fit Text Plugin for Main Header
     $("h1").fitText(
         1.2, {
