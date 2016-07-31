@@ -18,7 +18,7 @@ $( document ).ready(function() {
     			// Output data into output container
     			$("#output").html(JSON.stringify(response));
 
-    			// create an HTML element that will hold all of the prettified elements
+    			//create an HTML element that will hold all of the prettified elements
     			var movieContainer = $('<div class="movie_Container">');
     			// Append the movie container to the existing container
     			$(".pretty_movie_output").append(movieContainer);
