@@ -96,11 +96,12 @@
                     <hr class="light">
                     <div class="text-left">
                         <ol>
-                            <li class="text-faded">Here's a great video on getting started with the <a href="https://www.youtube.com/watch?v=53AoDB7vcbU">OpenWeatherMap</a></li>
-                            <li class="text-faded">Once you're done watching the video, you should have a basic understanding of running these queries. Now, let's set them up.</li>
-                            <li class="text-faded">Get yourself an API key from the following <a href="http://openweathermap.org/appid" target="_blank">url</a></li>
-                            <li class="text-faded">We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</li>
-                            <li class="text-faded">Let's go ahead and create the HTML for the code.</li>
+                            <li class="text-faded"><p>Here's a great video on getting started with the <a href="https://www.youtube.com/watch?v=53AoDB7vcbU">OpenWeatherMap</a></p></li>
+                            <li class="text-faded"><p>Once you're done watching the video, you should have a basic understanding of running these queries. Now, let's set them up.</p></li>
+                            <li class="text-faded"><p>Get yourself an API key from the following <a href="http://openweathermap.org/appid" target="_blank">url</a></p></li>
+                            <li class="text-faded"><p>We're going to build our Weather query system by creating some HTML form fields, have the user click a button to run the query based on the data from the field, and then return that data back to the screen.</p></li>
+                            <li class="text-faded"><p>Let's go ahead and create the HTML for the code. </p></li>
+                            <p>Note: There are Bootstrap classes present in the HTML, but they aren't necessary for functionality.</p>
                             <pre>
 &lt;div class="row"&gt;
     &lt;div class="col-lg-8 col-lg-offset-2 text-center"&gt;
@@ -121,8 +122,8 @@
     &lt;/div&gt;
 &lt;/div&gt;
 </pre>
-                            <li class="text-faded">Before we add the code, be sure that you have jQuery installed.</li>
-                            <li class="text-faded">Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</li>
+                            <li class="text-faded"><p>Before we add the code, be sure that you have jQuery installed.</p></li>
+                            <li class="text-faded"><p>Next, we're going to add some code so that when a user clicks on one of the 3 buttons, the data from the respective field is taken.</p></li>
                             <pre>
 $( document ).ready(function() {
     var appID = "PUT YOUR API KEY HERE";
@@ -132,7 +133,7 @@ $( document ).ready(function() {
     })
 });
 </pre>
-                            <li class="text-faded">OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</li>
+                            <li class="text-faded"><p>OK, so now let's go ahead and build the functionality for querying the weather map API. We'll start by creating 3 if/else statements to check which input is being transmitted to the API. We can then set ta variable called "weather" to store our url with the appropriate parameters.</p></li>
                             <pre>
 $( document ).ready(function() {
     var appID = "PUT YOUR API KEY HERE";
