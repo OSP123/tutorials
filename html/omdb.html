@@ -81,7 +81,6 @@
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>Using the OMDb API</h1>
-                <h3>Unfortunately, OMDB now requires payment ($1 a month for basic plan). So, the demo won't work. However, the code is correct if you do plan on paying.</h3>
                 <hr>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Begin</a>
                 <a href="#omdb_demo" class="btn btn-primary btn-xl page-scroll">OMDb Demo</a>
@@ -102,6 +101,7 @@
                         </ul> -->
                         <ol>
                             <li class="text-faded">First, try reading through the documentation provided in the link above. Notice that we will have to use a url with parameters placed in the url in order to gather the data we need.</li>
+                            <li class="text-faded">Also, please register yourself for a free API key to use for API usage.</li>
                             <li class="text-faded">Here, we create the HTML for the code.</li>
 <pre>
 &lt;div id="omdb_demo" class="row"&gt;
@@ -138,7 +138,7 @@ $("#omdb_submit").click(function(){
     var title = $("#title").val();
     var year = $("#year").val(); 
     // Concatenate those variables to a query string.
-    var queryString = "http://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
+    var queryString = "http://www.omdbapi.com/?apikey=YOURAPIKEY&t=" + title + "&y=" + year + "&plot=short&r=json";
 });
 </pre> 
                             <li class="text-faded">Finally, we'll add our complicated AJAX into the mix. The AJAX function will query the url we passed to it and once done, we'll then output our data into our html. Take a look at th at the comments in the code for more details.</li>
@@ -149,7 +149,7 @@ $("#omdb_submit").click(function(){
         var year = $("#year").val(); 
         // Concatenate those variables to a query string.
         // Note: If you get errors about mixed protocols, then just change the url below to be in https format
-        var queryString = "https://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
+        var queryString = "https://www.omdbapi.com/?apikey=YOURAPIKEY&t=" + title + "&y=" + year + "&plot=short&r=json";
         // Put that query string into the AJAX request
         $.ajax({
             url: queryString, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
