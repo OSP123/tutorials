@@ -5,7 +5,7 @@ $( document ).ready(function() {
 		var year = $("#year").val(); 
 		// Concatenate those variables to a query string.
 		// Note: If you get errors about mixed protocols, then just change the url below to be in https format
-		var queryString = "https://www.omdbapi.com/?t=" + title + "&y=" + year + "&plot=short&r=json";
+    var queryString = "https://www.omdbapi.com/?apikey=afd82b43&t=" + title + "&y=" + year + "&plot=short&r=json";
 		// Put that query string into the AJAX request
 		$.ajax({
             url: queryString, // The URL to the API. You can get this by clicking on "Show CURL example" from an API profile
